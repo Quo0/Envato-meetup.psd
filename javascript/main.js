@@ -7,6 +7,7 @@ window.onload = function(){
   smoothLinks();
   timeCounter();
   formsValidation();
+  schedule();
 }
 
 
@@ -257,5 +258,26 @@ function formsValidation(){
   for( var i = 0; i<allForms.length; i++ ){
     allForms[i].addEventListener('submit', validate);
   }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+function schedule(){
+  var allTabs = document.querySelectorAll(".event-table .event-item");
+  allTabs.forEach(function(tab){
+    tab.addEventListener('click', function(e){
+      if(e.target.className == "data-checker"){
+        var switcher = e.target;
+        var tabDescription = tab.querySelector(".more-info");
+        log(tabDescription)
+        if(tabDescription.style.display == "block"){
+          tabDescription.style.display = "none";
+        }
+        else{
+          tabDescription.style.display = "block";
+        }
+      }
+    })
+  })
 }
 
