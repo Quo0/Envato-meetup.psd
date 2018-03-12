@@ -5,6 +5,7 @@ window.onload = function(){
   fixedHeader();
   menuToggle();
   smoothLinks();
+  timeCounter();
 }
 
 
@@ -121,6 +122,54 @@ function smoothLinks(){
       }
     }
   })
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+function timeCounter(){
+  var deadline = 'May 01 2018';
+
+  var timer = setTimeout(outputNums , 1000);
+  function outputNums(){       
+    var timeRemain = Date.parse(deadline) - Date.parse(new Date());
+    if(timeRemain){
+      var sec = Math.floor( (timeRemain / 1000) % 60 );
+      var min = Math.floor( (timeRemain / 1000 / 60 ) % 60 );
+      var hours = Math.floor( (timeRemain / 1000 / 60 / 60 ) % 24 );
+      var days = Math.floor( (timeRemain / 1000 / 60 / 60 / 24) );
+
+      var strSec = "" + ( sec / 10).toFixed(1)
+      var strMin = "" + ( min / 10 ).toFixed(1);
+      var strHours = "" + ( hours / 10 ).toFixed(1);
+      var strDays = "" + ( days / 10 ).toFixed(1);
+
+      var arrSec = Array.from(strSec);
+      arrSec.splice(1,1);
+      var outSec = arrSec.join("");
+
+      var arrMin = Array.from(strMin);
+      arrMin.splice(1,1);
+      var outMin = arrMin.join("");
+
+      var arrHours = Array.from(strHours);
+      arrHours.splice(1,1);
+      var outHours = arrHours.join("");
+
+      var arrDays = Array.from(strDays);
+      arrDays.splice(1,1);
+      var outDays = arrDays.join("");
+     
+      document.querySelector("#days").innerHTML = outDays;
+      document.querySelector("#hours").innerHTML = outHours;
+      document.querySelector("#min").innerHTML = outMin;
+      document.querySelector("#sec").innerHTML = outSec;
+     
+      timer = setTimeout(outputNums , 1000);
+    }
+    else{
+      clearTimeout(timer);
+    }    
+  }  
 }
 
 
