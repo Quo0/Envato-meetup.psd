@@ -1,0 +1,141 @@
+.top-block{
+	max-width: 1170px;
+	width: 100%;	
+	margin: 0 auto;
+	@include content-padding;
+}
+#header-wrapper{
+	width: 100%;
+	left: 0;
+	top: -500%;
+	background-color: #333;
+	transition: all .5s;
+}
+header{
+	padding-top: 3em;
+	max-width: 1170px;
+	width: 100%;	
+	margin: 0 auto;
+	.logo{
+		display: inline-block;
+	}
+	.menu-toggler{
+		position: relative;
+		float: right;
+		margin-top: 2em;
+		display: none;
+		font-size: 1.8em;			
+		text-transform: uppercase;
+		color: #ffffff;
+		font-weight: 400;
+		letter-spacing: .1em;
+		color: #99cc33;
+		padding-right: 2em;
+		.status-icon{
+			// transition: .3s;
+			display: block;
+			position: absolute;
+			left: 80%;
+			top: 40%;
+			border-left: 6px solid transparent;
+			border-right: 6px solid transparent;
+			border-top: 6px solid #99cc33;
+		}		
+	}
+	#nav{
+		float: right;
+		margin-top: 3em;
+		&.menu-open{
+			display: block;
+		}
+		li{
+			display: inline-block;			
+			padding-left: 3em;	
+			a{
+				font-size: 1.6em;			
+				text-transform: uppercase;
+				color: #ffffff;
+				font-weight: 100;
+				&:hover{
+					color: #cccccc;
+				}
+			}
+		}
+	}
+	&:after{
+		content:"";
+		display:block;
+		clear: both;
+	}
+}
+.clock-block{
+	padding-top: 11.5em;
+	@include inner-padding;
+	.clock-wrapper{
+		border: 2px solid #99cc33;
+		border-radius: 10px;
+		text-align: center;
+		padding: 0 2em 2em;
+		.clock-segment{
+			display: inline-block;
+			width: 24.2%;
+			color: #FFF;
+			.num{
+				font-family: 'Roboto Slab', serif;
+				position: relative;
+				font-size: 13em;
+				font-weight: 100;
+				&:after{
+					content: ":";
+					position: absolute;
+					display: inline-block;
+					left: 97%;
+
+				}
+			}
+			.date-type{
+				text-transform: uppercase;
+				font-size: 2.5em;
+			}
+			&:last-child > .num:after{
+				display: none;
+			}
+		}
+	}
+}
+.image-block{
+	margin-top: 13em;
+	position: relative;
+	height: 160px;
+	img{
+		position: absolute;
+		&:nth-child(1){
+			z-index: 6;	
+			left: -5.5%;	
+			top: 6em;	
+		}
+		&:nth-child(2){
+			z-index: 5;
+			left: 7.2%;
+			// left: 7.5em;
+			top: 5em;			
+		}
+		&:nth-child(3){
+			z-index: 4;
+			left: 19%;	
+			top: 3em;		
+		}
+		&:nth-child(4){
+			z-index: 3;
+			left: 32%;	
+			top: 2em;		
+		}
+		&:nth-child(5){
+			z-index: 2;
+			left: 45%;	
+			top:1em;
+		}
+
+	}
+}
+

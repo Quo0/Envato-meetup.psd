@@ -1,0 +1,61 @@
+.rewards-block{
+	margin-top: -10em;
+	background-color: #4B4D4F;
+	padding: 17em 0;	
+}
+.rewards-block-content{
+	position: relative;
+	max-width: 103em;
+	width: 100%;
+	margin: 0 auto;
+	text-align: right;
+	padding: 0 2%;
+	img{
+		display: inline-block;
+		position: absolute;
+		left: 3em;
+		top: -20em;
+		z-index: 100;
+		width: 320 / 1030 * 100%;
+		border-radius: 50%;
+		box-shadow: 5px 6px 13px #111;
+	}
+	h1{
+		font-size: 5em;
+		font-weight: 900;
+		color: #FFF;
+		margin-bottom: .8em;
+		display: inline-block;
+		width: 700 / 1030 * 100%;
+
+	}
+	.rewards-info{
+		display: inline-block;
+		width: 700 / 1030 * 100%;
+		
+		p{
+			font-size: 1.4em;
+			font-weight: 100;
+			color: #FFF;
+			margin-bottom: 1em;
+			&:last-of-type{
+				margin-bottom: 3.5em;
+			}
+		}
+		input{
+			font-size: 1.4em;
+			background-color: #99cc33;
+			color: #FFF;
+			padding: 1em 1.5em;
+			border: none;
+			border-radius: 12px;
+			cursor: pointer;
+			&:hover{
+				box-shadow: 0 0 0 2px #4B4D4F, 0 0 0 3px #99cc33;
+			}
+
+		}
+	}
+}
+
+

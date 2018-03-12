@@ -1,0 +1,44 @@
+footer{
+	background-color: #90D23D;
+	padding: 4em 0;
+	.footer-socials{
+		position: relative;
+		max-width: 117em;
+		margin: 0 auto;
+		color: #fff;
+		text-align: center;
+		a{
+			margin-right: 1.5em;
+			&:last-of-type{
+				margin-right: 0;
+			}
+		}
+		img{
+			width:4.5em;
+		}
+		p{
+			font-size: 1.8em;
+			font-weight: 100;
+			margin-top:2em;
+			line-height: 1.5em;
+		}
+		#scroll-top{
+			display: inline-block;
+			position: absolute;
+			top: 50%;
+			right: 7%;
+			width: 15px;
+			height: 15px;
+			border-left: 5px solid #333;
+			border-top: 5px solid #333;
+			transform: rotateZ(45deg);
+			cursor: pointer;
+		}
+	}
+}
+@media screen and (max-width: 710px){
+	footer{
+		font-size: .5rem;
+		padding: 3em 0;
+	}
+}

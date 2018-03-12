@@ -1,0 +1,61 @@
+@media screen and (max-width: 950px){
+	.rewards-block{
+		padding: 13em 0;
+	}
+	.rewards-block-content{
+		img{
+			top: -10em;
+			left: 1em;
+			width: 30%;
+		}
+		h1{
+			font-size: 4em;
+		}
+	}		
+}
+@media screen and (max-width: 610px){
+	.rewards-block-content{
+		text-align: left;
+		.h1{
+			position: relative;
+			img{
+				left: unset;
+				right:1%;	
+				top: -200%;		
+			}
+			h1{
+				font-size: 3em;
+				display: block;
+				margin-bottom: 2.5em;
+			}
+		}		
+		.rewards-info{
+			width: 100%;
+		}
+	}
+}
+@media screen and (max-width: 455px){
+	.rewards-block-content{
+		.h1{
+			position: relative;
+			img{
+				width: 35%;
+				top:-50%;
+			}
+			h1{
+				font-size: 3em;
+				display: block;
+				margin-bottom: 1.5em;
+			}
+		}	
+	}
+}
+@media screen and (max-width: 370px){
+	.rewards-block-content{
+		.h1{
+			h1{
+				margin-bottom: 0.8em;
+			}
+		}	
+	}
+}

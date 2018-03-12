@@ -1,0 +1,16 @@
+@mixin outer-padding{
+	padding-left: 100 / 1370 * 100%;
+	padding-right: 100 / 1370 * 100%;
+}
+@mixin content-padding{
+	padding-left: 60 / 1170 * 100%;
+	padding-right: 60 / 1170 * 100%;
+}
+@mixin content-padding-small{
+	padding-left: 15 / 1170 * 100%;
+	padding-right: 15 / 1170 * 100%;
+}
+@mixin inner-padding{
+	padding-left: 3em;
+	padding-right: 3em;
+}

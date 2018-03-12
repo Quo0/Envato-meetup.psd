@@ -1,0 +1,113 @@
+.past-events-block{
+	position: relative;
+    top: -15em;
+    transform: skewY(-5deg);
+	background-color: #fff;
+	.past-events-block-content{
+		max-width: 117em;
+		width: 100%;
+		margin: 0 auto;
+		transform: skewY(5deg);
+		padding-top: 15em;
+		padding-bottom: 15em;
+		.photos-section{
+			text-align: center;
+			.img{
+				display:inline-block;
+				margin: 0;
+				&:nth-child(1){
+					width: 595/1170*100%;
+					background-color: #3D6ED2;
+					&:before{
+						content:"";
+						padding-top: 415 / 595 * 100%;
+						float: left;
+					}
+				}
+				&:nth-child(2){
+					width: 570/1170*100%;
+					background-color: #90D23D;
+					&:before{
+						content:"";
+						padding-top: 415 / 570 * 100%;
+						float: left;
+					}
+				}
+				&:nth-child(3){
+					width: 495/1170*100%;
+					background-color: #FF9D00;
+					&:before{
+						content:"";
+						padding-top: 415 / 495 * 100%;
+						float: left;
+					}
+				}
+				&:nth-child(4){
+					width: 670/1170*100%;
+					background-color: #E0652A;
+					&:before{
+						content:"";
+						padding-top: 415 / 670 * 100%;
+						float: left;
+					}
+				}
+			}
+		}
+		.text-wrapper{
+			max-width: 103em;
+			margin: 0 auto;
+			padding: 0 3em;
+		}
+		.past-events-text{
+			max-width: 600px;
+			h1{
+				font-size: 5em;
+				font-weight: 900;
+				margin-bottom: .5em;				
+			}
+			p{
+				font-size: 1.4em;
+				font-weight: 100;
+				margin-bottom: 7em;
+			}
+			
+		}
+		input[type="button"]{
+			display: block;
+			margin: 5em auto;
+			font-size: 2.2em;
+			background-color: #333;
+			color: #FFF;
+			text-transform: capitalize;
+			padding: .6em 2em;
+			border: none;
+			border-radius: 12px;
+			cursor: pointer;
+			&:hover{
+				box-shadow: 0 0 0 2px #333 inset, 0 0 0 3px #FFF inset;
+			}
+		}
+
+	}
+}
+@media screen and (max-width: 710px){
+	.past-events-block{
+		.past-events-block-content{
+			padding-top: 7em;
+			.text-wrapper p{
+				margin-bottom: 4em;
+			}
+			.photos-section{
+				.img{
+					width: 100% !important;
+					&:before{
+						padding-top: 415 / 595 * 100% !important;
+					}
+				}
+			}
+			input[type="button"]{
+				margin: 2em auto;
+			}
+		}
+	}
+}
