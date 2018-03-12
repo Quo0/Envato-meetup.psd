@@ -8,6 +8,7 @@ window.onload = function(){
   timeCounter();
   formsValidation();
   schedule();
+  initMap();
 }
 
 
@@ -279,5 +280,79 @@ function schedule(){
       }
     })
   })
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+function initMap() {
+    var siteMap = document.getElementById('map');
+    var options = {
+      zoom: 17,
+      center: { 
+        lat: 56.324358,
+        lng: 43.999318}
+    }
+    var myMap = new google.maps.Map(siteMap,options);
+
+    function addMarker(props){
+      var marker = new google.maps.Marker({
+        position: props.cords,
+        map: myMap,
+        title: props.title,
+        animation: google.maps.Animation.DROP       
+      })
+      if(props.icon){
+        marker.setIcon(props.icon)
+      }   
+      /// popup ///
+      if(props.info){
+        marker.addListener("click",function(){
+          var infoWindow = new google.maps.InfoWindow({
+            content: props.info
+          })
+          infoWindow.open(myMap,marker);
+        })
+      }
+    }
+    /// put new marker here ///
+    var allMarkers = [
+      { 
+        cords:{
+          lat: 56.324358,
+          lng: 43.999318
+        },
+        title: "My current job location.",
+        icon: "https://d1u5p3l4wpay3k.cloudfront.net/tyranny_gamepedia_en/c/c2/EdgeRingIcon.png?version=5271e43fc1a27bc5380ea7d7ea5071f6",
+        info: "<h4>Minin-hotel</h4>" + "<br>" + "<p>Тут мне скучно и тоскливо. Лорем ипсум трололо ололо!</p>"      
+      },{ 
+        cords:{
+          lat: 56.231445,
+          lng: 43.960212
+        },
+        title: "My house",
+        icon: "http://new.cash-express.com.ua/wp-content/uploads/2016/10/icon6.png",
+        info: "<h4>My flat</h4>" + "<br>" + "<p>lorem ipsum awdeghqawdaaw dawwdawgawdawda wdawda wdawd !awd awd11e1 dfhhhhhhhha awd awd </p>"     
+      }
+    ]
+    /// output marksers
+    for(i=0; i<allMarkers.length; i++){
+      addMarker(allMarkers[i]);
+    }
+
+    ///
+    var showMapBtn = document.querySelector("#showMap");
+    var googleMapLayer = document.querySelector(".google-map");
+    var closeMapBtn = document.querySelector("#closeMap");
+
+    showMapBtn.addEventListener("click",function(){
+      googleMapLayer.style.zIndex = 500;
+      googleMapLayer.style.padding = "3px 3px 4px";
+      closeMapBtn.style.display = "inline-block";
+    })
+    closeMapBtn.addEventListener("click",function(){
+      googleMapLayer.style.zIndex = -10;
+      googleMapLayer.style.padding = 0;
+      closeMapBtn.style.display = "none";
+    })   
 }
 
