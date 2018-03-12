@@ -6,6 +6,7 @@ window.onload = function(){
   menuToggle();
   smoothLinks();
   timeCounter();
+  formsValidation();
 }
 
 
@@ -172,4 +173,89 @@ function timeCounter(){
   }  
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+
+function formsValidation(){
+
+  var rules = {
+    required: function(el){
+      if(el.value != ""){
+        return true;
+      }
+      return false;
+    },
+    name: function(el){
+      var regExp = /^([a-zA-Z0-9 ])+$/
+      return regExp.test(el.value);
+    },
+    userName: function(el){
+      var regExp = /^([a-zA-Z0-9_\-!#$%\&])+$/
+      return regExp.test(el.value);
+    },
+    email: function(el){
+      var regExp = /^[a-zA-Z0-9]{1,}@[a-zA-Z0-9_\-]{1,}\.[a-zA-Z0-9]{1,}$/
+      return regExp.test(el.value);
+    },
+    phone: function(el){
+      var regExp = /^\+7\d{10}$/
+      return regExp.test(el.value);
+    }
+  } // actually I dont know regexp well, but i've tested those at regex101.com
+
+  function showErrors(arr){
+    // log(arr);
+    for(var i = 0; i<arr.length; i++){
+      arr[i].element.style.border = "1px solid #a12";
+      var patternInfo = arr[i].element.parentElement.querySelector(".pattern-field");
+      patternInfo.style.display = "block";
+    }
+  }
+
+  function resetErrors(f){
+    var inputs = f.querySelectorAll("input, textarea");
+    inputs.forEach(function(inp){
+        if(inp.type != "submit"){
+          inp.style.border = "1px solid #99cc33";
+          var patternInfo = inp.parentElement.querySelector(".pattern-field");
+          patternInfo.style.display = "none";
+      }
+    })
+  }
+
+
+  function validate(e){
+    // e.preventDefault();
+    resetErrors(this);
+    var errors = [];
+    var allInputs = this.elements;
+    for ( var i = 0; i < allInputs.length; i++){
+      if( (allInputs[i].type != "submit") ){
+        var rulesString = allInputs[i].dataset.validationRule;
+        var rulesArr = rulesString.split(" ");
+        // log(rulesArr);
+        for(var j = 0; j<rulesArr.length; j++){
+          if(rulesArr[j] in rules){
+            if(!rules[rulesArr[j]](allInputs[i])){
+                errors.push({
+                  errorType: rulesArr[j],
+                  element: allInputs[i]
+                });
+                // log(errors);
+            }
+          }
+        }
+      }
+    }
+    if(errors.length > 0){
+      e.preventDefault();
+      showErrors(errors);
+    }
+  }
+
+  // put listeners
+  var allForms = document.forms;
+  for( var i = 0; i<allForms.length; i++ ){
+    allForms[i].addEventListener('submit', validate);
+  }
+}
 
