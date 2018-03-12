@@ -9,6 +9,7 @@ window.onload = function(){
   formsValidation();
   schedule();
   initMap();
+  scrollToTop();
 }
 
 
@@ -354,5 +355,36 @@ function initMap() {
       googleMapLayer.style.padding = 0;
       closeMapBtn.style.display = "none";
     })   
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+function scrollToTop(){
+  var scrollTopBtn = document.querySelector("#scroll-top");
+  var headerLogo = document.querySelector("header .logo");
+
+  scrollTopBtn.addEventListener("click", allWayUp);
+  headerLogo.addEventListener("click", function(e){
+    e.preventDefault();
+    allWayUp();
+  });
+
+  function allWayUp(){
+    var step = 80;
+    var timer = setTimeout(smoothWayUp, 5);
+    var scrollPosition = window.pageYOffset;
+    function smoothWayUp(){
+      if(scrollPosition != 0){
+        window.scrollTo(0, scrollPosition);      
+        scrollPosition = scrollPosition - step        
+        timer = setTimeout(smoothWayUp, 5);
+      }
+      if(window.pageYOffset == 0){
+        clearTimeout(timer);
+      }
+      
+    }
+    
+  }
 }
 
