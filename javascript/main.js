@@ -142,26 +142,18 @@ function timeCounter(){
       var hours = Math.floor( (timeRemain / 1000 / 60 / 60 ) % 24 );
       var days = Math.floor( (timeRemain / 1000 / 60 / 60 / 24) );
 
-      var strSec = "" + ( sec / 10).toFixed(1)
-      var strMin = "" + ( min / 10 ).toFixed(1);
-      var strHours = "" + ( hours / 10 ).toFixed(1);
-      var strDays = "" + ( days / 10 ).toFixed(1);
+      function toRightFormat(unit){
+        var strUnit = "" + ( unit / 10).toFixed(1);
+        var arrUnit = Array.from(strUnit);
+        arrUnit.splice(1,1);
+        var outUnit = arrUnit.join("");
+        return outUnit;
+      }
 
-      var arrSec = Array.from(strSec);
-      arrSec.splice(1,1);
-      var outSec = arrSec.join("");
-
-      var arrMin = Array.from(strMin);
-      arrMin.splice(1,1);
-      var outMin = arrMin.join("");
-
-      var arrHours = Array.from(strHours);
-      arrHours.splice(1,1);
-      var outHours = arrHours.join("");
-
-      var arrDays = Array.from(strDays);
-      arrDays.splice(1,1);
-      var outDays = arrDays.join("");
+      var outSec = toRightFormat(sec);
+      var outMin = toRightFormat(min);
+      var outHours = toRightFormat(hours);
+      var outDays = toRightFormat(days);
      
       document.querySelector("#days").innerHTML = outDays;
       document.querySelector("#hours").innerHTML = outHours;
